@@ -22,7 +22,6 @@ import tkinter.font as tkfont
 from faster_whisper import WhisperModel
 import kss  # 한국어 문장 분리기
 import requests
-<<<<<<< HEAD
 # import torch
 
 # 다크 테마 색상
@@ -46,21 +45,6 @@ COLORS = {
     # listbox selection colors
     'select_bg': '#c7d2fe',   # 밝은 인디고
     'select_fg': '#ffffff'
-=======
-import torch
-
-# 다크 테마 색상
-COLORS = {
-    'bg': '#1e1e1e',
-    'fg': '#ffffff',
-    'button_bg': '#3a3a3a',
-    'button_hover': '#4a4a4a',
-    'accent': '#007acc',
-    'success': '#4caf50',
-    'error': '#f44336',
-    'border': '#555555',
-    'input_bg': '#2d2d2d'
->>>>>>> b46c109ba43801b21a0ba7af5db9cf02b3eddb61
 }
 
 class WhisperGUI:
@@ -166,11 +150,7 @@ class WhisperGUI:
         
         # 제목
         title_label = tk.Label(main_container, 
-<<<<<<< HEAD
                               text="P2L - Problem to Lecture: 강의 자막 생성기",
-=======
-                              text="🎬 동영상 → 문장별 타임스탬프 변환",
->>>>>>> b46c109ba43801b21a0ba7af5db9cf02b3eddb61
                               font=('Segoe UI', 18, 'bold'),
                               bg=COLORS['bg'], fg=COLORS['fg'])
         title_label.pack(pady=(0, 20))
@@ -387,18 +367,13 @@ class WhisperGUI:
         lang_combo.bind('<<ComboboxSelected>>', update_lang_info)
 
 
-<<<<<<< HEAD
         #        # 2. 수업(LECTURE) 제목 + 강의(CHAPTER) 제목 표시 영역
-=======
-        # 2. 수업 고유번호 + 강의 고유번호 (한 줄)
->>>>>>> b46c109ba43801b21a0ba7af5db9cf02b3eddb61
         row2_container = tk.Frame(inner_frame, bg=COLORS['bg'])
         row2_container.pack(fill=tk.X)
 
         row2 = tk.Frame(row2_container, bg=COLORS['bg'])
         row2.pack(pady=10)
 
-<<<<<<< HEAD
         # ─────────────────────────────
         # 수업 (Lecture)
         # ─────────────────────────────
@@ -456,43 +431,14 @@ class WhisperGUI:
 
         # 숨겨진 ID 저장 변수
         self.chapter_var = tk.StringVar()
-=======
-        lecture_frame = tk.Frame(row2, bg=COLORS['bg'])
-        lecture_frame.pack(side=tk.LEFT, padx=20, expand=True)
-
-        tk.Label(lecture_frame, text="수업 고유번호:",
-                bg=COLORS['bg'], fg=COLORS['fg']).pack(anchor="w")
-
-        self.lecture_var = tk.StringVar()
-        tk.Entry(lecture_frame,
-                textvariable=self.lecture_var,
-                bg=COLORS['input_bg'], fg=COLORS['fg'],
-                insertbackground=COLORS['fg']).pack(anchor="w")
-
-        chapter_frame = tk.Frame(row2, bg=COLORS['bg'])
-        chapter_frame.pack(side=tk.LEFT, padx=20, expand=True)
-
-        tk.Label(chapter_frame, text="강의 고유번호:",
-                bg=COLORS['bg'], fg=COLORS['fg']).pack(anchor="w")
-
-        self.chapter_var = tk.StringVar()
-        tk.Entry(chapter_frame,
-                textvariable=self.chapter_var,
-                bg=COLORS['input_bg'], fg=COLORS['fg'],
-                insertbackground=COLORS['fg']).pack(anchor="w")
->>>>>>> b46c109ba43801b21a0ba7af5db9cf02b3eddb61
         
         
         # 3. 수업 등록, 수업 목록, 강의 등록 버튼 3개를 한 줄에 가운데 정렬
         buttons_frame = tk.Frame(inner_frame, bg=COLORS['bg'])
         buttons_frame.pack(fill=tk.X, pady=(15, 5))
 
-<<<<<<< HEAD
         # ➕ 새로운 수업 등록 (Lecture)
         btn_new_lecture = tk.Button(
-=======
-        btn1 = tk.Button(
->>>>>>> b46c109ba43801b21a0ba7af5db9cf02b3eddb61
             buttons_frame,
             text="➕ 새로운 수업 등록 (Lecture)",
             font=('Segoe UI', 10, 'bold'),
@@ -502,16 +448,10 @@ class WhisperGUI:
             bd=0, padx=20, pady=6, cursor='hand2',
             command=self.register_lecture
         )
-<<<<<<< HEAD
         btn_new_lecture.grid(row=0, column=0, padx=5, pady=5, sticky="nsew")
 
         # 📚 기존 수업 목록 보기
         btn_view_lecture = tk.Button(
-=======
-        btn1.pack(side=tk.LEFT, expand=True, padx=5)
-
-        btn2 = tk.Button(
->>>>>>> b46c109ba43801b21a0ba7af5db9cf02b3eddb61
             buttons_frame,
             text="📚 기존 수업 목록 보기",
             font=('Segoe UI', 10, 'bold'),
@@ -521,16 +461,10 @@ class WhisperGUI:
             bd=0, padx=20, pady=6, cursor='hand2',
             command=self.view_lecture_list
         )
-<<<<<<< HEAD
         btn_view_lecture.grid(row=0, column=1, padx=5, pady=5, sticky="nsew")
 
         # ➕ 새로운 강의 등록 (Chapter)
         btn_new_chapter = tk.Button(
-=======
-        btn2.pack(side=tk.LEFT, expand=True, padx=5)
-
-        btn3 = tk.Button(
->>>>>>> b46c109ba43801b21a0ba7af5db9cf02b3eddb61
             buttons_frame,
             text="➕ 새로운 강의 등록 (Chapter)",
             font=('Segoe UI', 10, 'bold'),
@@ -540,7 +474,6 @@ class WhisperGUI:
             bd=0, padx=20, pady=6, cursor='hand2',
             command=self.register_chapter
         )
-<<<<<<< HEAD
         btn_new_chapter.grid(row=1, column=0, padx=5, pady=5, sticky="nsew")
 
         # 📚 기존 강의 목록 보기
@@ -559,9 +492,6 @@ class WhisperGUI:
         # Grid 균등 확장
         buttons_frame.grid_columnconfigure(0, weight=1)
         buttons_frame.grid_columnconfigure(1, weight=1)
-=======
-        btn3.pack(side=tk.LEFT, expand=True, padx=5)
->>>>>>> b46c109ba43801b21a0ba7af5db9cf02b3eddb61
 
 
         
@@ -718,17 +648,11 @@ class WhisperGUI:
             
             # 모델 로드
             if not self.model or self.model_var.get() != self.config.get('model'):
-<<<<<<< HEAD
                 #device = "cuda" if torch.cuda.is_available() else "cpu"
 
                 # compute_type = "float16" if device == "cuda" else "int8"
                 device = "cpu"
                 compute_type = "int8"
-=======
-                device = "cuda" if torch.cuda.is_available() else "cpu"
-
-                compute_type = "float16" if device == "cuda" else "int8"
->>>>>>> b46c109ba43801b21a0ba7af5db9cf02b3eddb61
 
                 self.model = WhisperModel(
                     self.model_var.get(),
@@ -912,7 +836,6 @@ class WhisperGUI:
             self.root.destroy()
 
     def register_chapter(self):
-<<<<<<< HEAD
         """새로운 챕터 등록 (Lecture ID 숨김 + UI 개선)"""
 
         # 팝업 생성
@@ -1059,57 +982,6 @@ class WhisperGUI:
                 "orderIndex": int(order),
                 "url": url or None,
                 "duration": None
-=======
-        """새로운 챕터 등록"""
-        popup, L, E, B = self.create_dark_popup("새로운 챕터 등록", "350x360")
-
-        L("Lecture ID (정수)").pack(pady=(10,0))
-        entry_lecture_id = E()
-        entry_lecture_id.pack(pady=(0,10))
-
-        L("챕터 제목").pack()
-        entry_title = E()
-        entry_title.pack(pady=(0,10))
-
-        L("order_index (몇 강인지)").pack()
-        entry_order = E()
-        entry_order.pack(pady=(0,10))
-
-        L("영상 URL (선택)").pack()
-        entry_url = E()
-        entry_url.pack(pady=(0,10))
-
-        L("영상 길이 (초 단위, 선택)").pack()
-        entry_duration = E()
-        entry_duration.pack(pady=(0,10))
-
-        def submit_chapter():
-            lecture_id_str = entry_lecture_id.get().strip()
-            title = entry_title.get().strip()
-            order_str = entry_order.get().strip()
-            url = entry_url.get().strip()
-            duration_str = entry_duration.get().strip()
-
-            # 기본 검증
-            if not lecture_id_str.isdigit():
-                messagebox.showerror("입력 오류", "Lecture ID는 정수여야 합니다.")
-                return
-            if not title:
-                messagebox.showerror("입력 오류", "챕터 제목은 필수입니다.")
-                return
-            if not order_str.isdigit():
-                messagebox.showerror("입력 오류", "order_index는 정수여야 합니다.")
-                return
-
-            lecture_id = int(lecture_id_str)
-
-            payload = {
-                "lectureId": lecture_id,
-                "title": title,
-                "orderIndex": int(order_str),
-                "url": url or None,
-                "duration": float(duration_str) if duration_str else None
->>>>>>> b46c109ba43801b21a0ba7af5db9cf02b3eddb61
             }
 
             try:
@@ -1118,7 +990,6 @@ class WhisperGUI:
                     json=payload,
                     timeout=10
                 )
-<<<<<<< HEAD
                 data = response.json()
                 if response.status_code == 200:
                     chapter_id = data.get("chapterId")
@@ -1213,24 +1084,6 @@ class WhisperGUI:
 
 
 
-=======
-                if response.status_code == 200:
-                    data = response.json()
-                    chapter_id = data.get("chapterId")
-
-                    if chapter_id:
-                        # UI 메인 입력창에도 Chapter ID 넣어주기
-                        self.chapter_var.set(str(chapter_id))
-
-                    messagebox.showinfo("성공", f"챕터 등록 완료!\nChapter ID = {chapter_id}")
-                    popup.destroy()
-                else:
-                    messagebox.showerror("오류", f"등록 실패\n{response.text}")
-            except Exception as e:
-                messagebox.showerror("오류", f"예외 발생: {e}")
-
-        tk.Button(popup, text="등록", command=submit_chapter).pack(pady=10)
->>>>>>> b46c109ba43801b21a0ba7af5db9cf02b3eddb61
 
     def view_lecture_list(self):
         """기존 Lecture 목록 조회 팝업"""
@@ -1238,11 +1091,7 @@ class WhisperGUI:
         # 팝업 생성 (dark theme)
         popup, L, E, B = self.create_dark_popup("기존 강의 목록", "420x400")
 
-<<<<<<< HEAD
         L("🔎 수업 검색").pack(pady=(10,5))
-=======
-        L("🔎 강의 검색").pack(pady=(10,5))
->>>>>>> b46c109ba43801b21a0ba7af5db9cf02b3eddb61
         search_entry = E()
         search_entry.pack(fill=tk.X, padx=10, pady=(0,10))
 
@@ -1269,10 +1118,7 @@ class WhisperGUI:
         try:
             response = requests.get("https://13-209-30-220.nip.io/api/lectures", timeout=10)
             lectures = response.json()
-<<<<<<< HEAD
             lectures = sorted(lectures, key=lambda x: x["lectureId"])
-=======
->>>>>>> b46c109ba43801b21a0ba7af5db9cf02b3eddb61
         except Exception as e:
             messagebox.showerror("오류", f"서버 통신 오류: {e}")
             popup.destroy()
@@ -1311,13 +1157,9 @@ class WhisperGUI:
                 text = listbox.get(index)
                 # "[3] 강의 제목" 형태 → ID만 추출
                 lecture_id = int(text.split("]")[0].replace("[", ""))
-<<<<<<< HEAD
                 lecture_title = text.split("]")[1].strip()
                 self.lecture_var.set(str(lecture_id))
                 self.lecture_title_var.set(lecture_title)
-=======
-                self.lecture_var.set(str(lecture_id))
->>>>>>> b46c109ba43801b21a0ba7af5db9cf02b3eddb61
                 popup.destroy()
             except:
                 messagebox.showwarning("선택 오류", "먼저 항목을 선택하세요.")
@@ -1368,20 +1210,12 @@ class WhisperGUI:
 
                     # UI의 Lecture 입력칸에 자동 입력
                     self.lecture_var.set(str(generated_id))
-<<<<<<< HEAD
                     self.lecture_title_var.set(title)
 
                     # messagebox.showinfo(
                     #     "성공",
                     #     f"강의 등록 완료!\nLecture ID = {generated_id}"
                     # )
-=======
-
-                    messagebox.showinfo(
-                        "성공",
-                        f"강의 등록 완료!\nLecture ID = {generated_id}"
-                    )
->>>>>>> b46c109ba43801b21a0ba7af5db9cf02b3eddb61
 
                     popup.destroy()
 
